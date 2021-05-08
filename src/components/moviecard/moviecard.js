@@ -2,13 +2,14 @@ import './style.css'
 import {Card} from "@material-ui/core";
 
 
-const MovieCard = ()=>{
-    return(
+const MovieCard = (props) => {
+    const {movieprops} = props
+    return (
         <Card className={'h-card'}>
-            <span>Title : </span>
-            <span>Description : </span>
-            <span>PosterUrl :</span>
-            <span>Rating</span>
+            <span>Title : {movieprops.title} </span>
+            <span>Description : {movieprops.description} </span>
+            <span>PosterUrl : {movieprops.posterurl}</span>
+            <span>Rating : {movieprops.rating}</span>
         </Card>
     )
 }
