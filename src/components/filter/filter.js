@@ -1,8 +1,19 @@
+import './style.css'
+import {Button, TextField} from "@material-ui/core";
 
 
 const Filter = ()=>{
     return(
-        <h1>Filter</h1>
+        <div className={'h-filter'}>
+            <TextField  label="Title"
+                        variant="outlined" />
+            <TextField  label="Rating"
+                        variant="outlined" />
+            <Button variant="contained"
+                    color="primary">
+                Filter
+            </Button>
+        </div>
     )
 }
 export default Filter
