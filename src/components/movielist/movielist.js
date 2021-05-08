@@ -1,6 +1,16 @@
+import './style.css'
+import MovieCard from "../moviecard/moviecard";
+
 const MovieList = ()=>{
     return(
-        <h1>MovieList</h1>
+       <div className={'h-container'}>
+           <MovieCard/>
+           <MovieCard/>
+           <MovieCard/>
+           <MovieCard/>
+           <MovieCard/>
+           <MovieCard/>
+       </div>
     )
 }
 export default MovieList

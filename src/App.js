@@ -1,10 +1,13 @@
 import './App.css';
+import Filter from "./components/filter/filter";
+import MovieList from "./components/movielist/movielist";
 
 const App = ()=> {
   return (
-    <div>
-     <h1>APP JS </h1>
-    </div>
+    <>
+        <Filter/>
+        <MovieList/>
+     </>
   );
 }
 

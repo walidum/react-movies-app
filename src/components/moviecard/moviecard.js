@@ -1,8 +1,15 @@
+import './style.css'
+import {Card} from "@material-ui/core";
 
 
 const MovieCard = ()=>{
     return(
-        <h1>MovieCard</h1>
+        <Card className={'h-card'}>
+            <span>Title : </span>
+            <span>Description : </span>
+            <span>PosterUrl :</span>
+            <span>Rating</span>
+        </Card>
     )
 }
 
