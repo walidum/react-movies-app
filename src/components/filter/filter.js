@@ -1,16 +1,20 @@
 import './style.css'
 import {Button, TextField} from "@material-ui/core";
-import {useState} from "react";
-import Swal from 'sweetalert2'
+import {useEffect, useState} from "react";
 
 const Filter = (props) => {
-    const {movies, setMovies} = props;
-
+    const {movies, setMovies, moviesList} = props;
     const [title, setTitle] = useState('')
     const [rating, setRating] = useState('')
     const filter = () => {
-        Swal.fire(title + ' ' + rating, '', 'info')
+        if (title) {
+            const newMovies = moviesList.filter(film => film.title.includes(title))
+            setMovies(newMovies)
+        }
     }
+    useEffect(() => {
+        filter();
+    }, [title])
     return (
         <div className={'h-filter'}>
             <TextField label="Title"
