@@ -45,7 +45,7 @@ const Filter = (props) => {
                        onChange={event => setRating(event.target.value)}
                        variant="outlined"/>
             <Button onClick={filter} variant="contained"
-                    color="primary">
+                    color="primary" style={{backgroundColor: 'red'}}>
                 Filter
             </Button>
         </div>
