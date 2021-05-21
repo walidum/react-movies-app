@@ -33,13 +33,25 @@ const moviesList = [
         description: 'Mouvie description 05',
         rating: 9,
         posterurl: 'url 05'
+    },
+    {
+        title: 'Movie 06 ',
+        description: 'Mouvie description 05',
+        rating: 9,
+        posterurl: 'url 05'
+    },
+    {
+        title: 'Movie 07 ',
+        description: 'Mouvie description 05',
+        rating: 9,
+        posterurl: 'url 05'
     }
 ]
 const App = () => {
     const [movies, setMovies] = useState(moviesList)
     return (
         <>
-            <Filter/>
+            <Filter movies={movies} setMovies={setMovies}/>
             <MovieList moviesprops={movies}/>
         </>
     );
