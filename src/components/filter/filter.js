@@ -7,14 +7,33 @@ const Filter = (props) => {
     const [title, setTitle] = useState('')
     const [rating, setRating] = useState('')
     const filter = () => {
-        if (title) {
-            const newMovies = moviesList.filter(film => film.title.includes(title))
+
+        if (title && rating) {
+            const newMovies = moviesList.filter(film =>
+                film.title.toUpperCase().includes(title.toUpperCase())
+                && film.rating == rating)
             setMovies(newMovies)
+        } else {
+            if (title) {
+                const newMovies = moviesList.filter(film =>
+                    film.title.toUpperCase().includes(title.toUpperCase()))
+                setMovies(newMovies)
+            } else {
+                if (rating) {
+                    const newMovies = moviesList.filter(film =>
+                        film.rating == rating)
+                    setMovies(newMovies)
+                } else {
+                    setMovies(moviesList)
+                }
+            }
         }
+
+
     }
     useEffect(() => {
         filter();
-    }, [title])
+    }, [title, rating])
     return (
         <div className={'h-filter'}>
             <TextField label="Title"
