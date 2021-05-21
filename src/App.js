@@ -27,6 +27,12 @@ const moviesList = [
         description: 'Mouvie description 04',
         rating: 9,
         posterurl: 'url 04'
+    },
+    {
+        title: 'Movie 05 ',
+        description: 'Mouvie description 05',
+        rating: 9,
+        posterurl: 'url 05'
     }
 ]
 const App = () => {
