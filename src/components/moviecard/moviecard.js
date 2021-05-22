@@ -1,6 +1,5 @@
 import './style.css'
 import {Card} from "@material-ui/core";
-import FilmImg from '../../assets/film.jpg'
 import {useState} from "react";
 import Rating from '@material-ui/lab/Rating';
 
@@ -11,7 +10,7 @@ const MovieCard = (props) => {
     return (
         <Card className={'h-card'}>
             <div className={'img-film'}>
-                <img src={FilmImg}/>
+                <img src={movieprops.posterurl}/>
             </div>
             <div className={'info-film'}>
                 <span className={'info-title'}>{movieprops.title} </span>
