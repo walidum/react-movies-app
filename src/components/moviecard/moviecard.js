@@ -6,7 +6,7 @@ import Rating from '@material-ui/lab/Rating';
 
 const MovieCard = (props) => {
     const {movieprops} = props
-    const [value, setValue] = useState(2);
+    const [value, setValue] = useState(movieprops.rating);
 
     return (
         <Card className={'h-card'}>

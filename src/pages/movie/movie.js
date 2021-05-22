@@ -7,13 +7,13 @@ const moviesList = [
     {
         title: 'Movie 01',
         description: 'Mouvie description 01',
-        rating: 9,
+        rating: 1,
         posterurl: 'url 01'
     },
     {
         title: 'Movie 02',
         description: 'Mouvie description 02',
-        rating: 6,
+        rating: 2,
         posterurl: 'url 02'
     },
     {
@@ -25,25 +25,25 @@ const moviesList = [
     {
         title: 'Movie 04',
         description: 'Mouvie description 04',
-        rating: 9,
+        rating: 3,
         posterurl: 'url 04'
     },
     {
         title: 'Movie 05',
         description: 'Mouvie description 05',
-        rating: 9,
+        rating: 4.5,
         posterurl: 'url 05'
     },
     {
         title: 'Movie 06',
         description: 'Mouvie description 05',
-        rating: 9,
+        rating: 4.5,
         posterurl: 'url 05'
     },
     {
         title: 'Movie 07',
         description: 'Mouvie description 05',
-        rating: 9,
+        rating: 4.5,
         posterurl: 'url 05'
     }
 ]
