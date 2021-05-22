@@ -10,8 +10,8 @@ const MovieCard = (props) => {
                 <img src={FilmImg}/>
             </div>
             <div className={'info-film'}>
-                <span>{movieprops.title} </span>
-                <span>{movieprops.description} </span>
+                <span className={'info-title'}>{movieprops.title} </span>
+                <span className={'info-description'}>{movieprops.description} </span>
             </div>
         </Card>
     )
