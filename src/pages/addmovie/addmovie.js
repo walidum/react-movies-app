@@ -3,8 +3,10 @@ import {Button, Card, TextField} from "@material-ui/core";
 import {useState} from "react";
 import Swal from "sweetalert2";
 import API from "../../api/api";
+import {useHistory} from 'react-router-dom'
 
 const AddMovie = () => {
+    const router = useHistory()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState('')
@@ -14,7 +16,16 @@ const AddMovie = () => {
         const params = {title, description, rating, poster}
         API.post('/add', params)
             .then(res => {
-                Swal.fire('', '', 'success')
+                if (res.data.error) {
+                    Swal.fire(res.data.msg, '', 'warning')
+                } else {
+                    Swal.fire('', '', 'success')
+                        .then(ok => {
+                            if (ok.isConfirmed) {
+                                router.push('/movie')
+                            }
+                        })
+                }
             })
             .catch(err => {
                 Swal.fire('', '', 'error')
