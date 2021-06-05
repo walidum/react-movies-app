@@ -2,6 +2,7 @@ import './style.css'
 import {Button, Card, TextField} from "@material-ui/core";
 import {useState} from "react";
 import Swal from "sweetalert2";
+import API from "../../api/api";
 
 const AddMovie = () => {
     const [title, setTitle] = useState('')
@@ -9,7 +10,15 @@ const AddMovie = () => {
     const [rating, setRating] = useState('')
     const [poster, setPoster] = useState('')
     const send = () => {
-        Swal.fire('', '', 'success')
+
+        const params = {title, description, rating, poster}
+        API.post('/add', params)
+            .then(res => {
+                Swal.fire('', '', 'success')
+            })
+            .catch(err => {
+                Swal.fire('', '', 'error')
+            })
     }
     return (
         <div className={'register-container'}>
