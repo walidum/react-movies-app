@@ -34,6 +34,7 @@ const Navbar = () => {
                 </Typography>
                 <Button onClick={() => router.push('/register')} color="inherit">Register</Button>
                 <Button onClick={() => router.push('/login')} color="inherit">Login</Button>
+                <Button onClick={() => router.push('/addmovie')} color="inherit">Add movie</Button>
             </Toolbar>
         </AppBar>
     )
