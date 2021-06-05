@@ -6,11 +6,13 @@ import API from "../../api/api";
 
 const Movie = () => {
     const [movies, setMovies] = useState([])
+    const [moviescopie, setMoviescopie] = useState([])
 
     useEffect(() => {
         API.get('/all')
             .then(res => {
                 setMovies(res.data)
+                setMoviescopie(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -20,7 +22,7 @@ const Movie = () => {
         <>
             <Navbar/>
             <Filter movies={movies} setMovies={setMovies}
-                    moviesList={movies}/>
+                    moviesList={moviescopie}/>
             <MovieList moviesprops={movies}/>
         </>
     );
