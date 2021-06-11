@@ -1,6 +1,8 @@
 import './register.css'
 import {Button, Card, TextField} from "@material-ui/core";
 import {useState} from "react";
+import API from "../../api/api";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const [nom, setNom] = useState('')
@@ -8,7 +10,14 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const send = () => {
-
+        const parms = {nom, prenom, email, password}
+        API.post('/register', parms)
+            .then(ok => {
+                Swal.fire('', '', 'success')
+            })
+            .catch(err => {
+                Swal.fire('', '', 'error')
+            })
     }
     return (
         <div className={'register-container'}>
@@ -34,7 +43,7 @@ const Register = () => {
                            onChange={event => setPassword(event.target.value)}
                            type="search"
                            variant="outlined"/>
-                <Button variant="contained" color="primary">
+                <Button onClick={send} variant="contained" color="primary">
                     Envoyer
                 </Button>
             </Card>
