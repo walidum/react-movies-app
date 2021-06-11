@@ -10,7 +10,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const send = () => {
-        const parms = {firstName: nom, lastName: prenom, email, password}
+        const parms = {firstName: prenom, lastName: nom, email, password}
         console.log(parms)
         API.post('/register', parms)
             .then(ok => {
