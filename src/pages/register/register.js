@@ -10,7 +10,8 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const send = () => {
-        const parms = {nom, prenom, email, password}
+        const parms = {firstName: nom, lastName: prenom, email, password}
+        console.log(parms)
         API.post('/register', parms)
             .then(ok => {
                 Swal.fire('', '', 'success')
