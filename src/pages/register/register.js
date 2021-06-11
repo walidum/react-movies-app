@@ -3,8 +3,10 @@ import {Button, Card, TextField} from "@material-ui/core";
 import {useState} from "react";
 import API from "../../api/api";
 import Swal from "sweetalert2";
+import {useHistory} from 'react-router-dom'
 
 const Register = () => {
+    const router = useHistory()
     const [nom, setNom] = useState('')
     const [prenom, setPrenom] = useState('')
     const [email, setEmail] = useState('')
@@ -13,8 +15,17 @@ const Register = () => {
         const parms = {firstName: prenom, lastName: nom, email, password}
         console.log(parms)
         API.post('/register', parms)
-            .then(ok => {
-                Swal.fire('', '', 'success')
+            .then(res => {
+                if (res.data.error) {
+                    Swal.fire(res.data.msg, '', 'warning')
+                } else {
+                    Swal.fire('', '', 'success')
+                        .then(ok => {
+                            if (ok.isConfirmed) {
+                                router.push('/movie')
+                            }
+                        })
+                }
             })
             .catch(err => {
                 Swal.fire('', '', 'error')
