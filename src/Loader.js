@@ -12,7 +12,14 @@ const Loader = () => {
     }
 
     return (
+
         <AuthContext.Provider value={{auth: auth, login: login, logout: logout}}>
+            {auth && (
+                <h1>You are logged in</h1>
+            )}
+            {!auth && (
+                <h1>You are logged out</h1>
+            )}
             <App/>
         </AuthContext.Provider>
     )
