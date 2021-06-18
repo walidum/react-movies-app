@@ -23,10 +23,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
     const auth = useContext(AuthContext)
+    console.log(auth.auth)
     const router = useHistory()
     const classes = useStyles();
     const logout = () => {
         auth.logout();
+        console.log(auth.auth)
         router.push('/login')
     }
     return (
@@ -38,11 +40,14 @@ const Navbar = () => {
                 <Typography variant="h6" className={classes.title}>
                     Movies
                 </Typography>
-                <Button onClick={() => router.push('/register')} color="inherit">Register</Button>
-                {auth.auth && (
-                    <Button onClick={() => router.push('/login')} color="inherit">Login</Button>
-                )}
                 {!auth.auth && (
+                    <>
+                        <Button onClick={() => router.push('/register')} color="inherit">Register</Button>
+
+                        <Button onClick={() => router.push('/login')} color="inherit">Login</Button>
+                    </>
+                )}
+                {auth.auth && (
                     <Button onClick={logout} color="inherit">Logout</Button>
                 )}
 
