@@ -19,6 +19,7 @@ const Login = () => {
                     Swal.fire(res.data.msg, '', 'warning')
                 } else {
                     auth.login();
+                    localStorage.setItem('auth', 'true')
                     Swal.fire('', '', 'success')
                         .then(ok => {
                             if (ok.isConfirmed) {

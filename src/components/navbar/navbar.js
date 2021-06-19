@@ -28,7 +28,7 @@ const Navbar = () => {
     const classes = useStyles();
     const logout = () => {
         auth.logout();
-        console.log(auth.auth)
+        localStorage.setItem('auth', 'false')
         router.push('/login')
     }
     return (
