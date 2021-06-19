@@ -24,8 +24,12 @@ const App = () => {
                 )}
                 {auth.auth && (
                     <>
+                        <Route exact path="/">
+                            <Redirect to="/movie"/>
+                        </Route>
                         <Route path="/movie" component={Movie}/>
                         <Route path="/addmovie" component={AddMovie}/>
+                        <Route component={Movie}/>
                     </>
                 )}
             </Switch>
