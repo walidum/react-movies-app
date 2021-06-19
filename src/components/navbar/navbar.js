@@ -48,10 +48,11 @@ const Navbar = () => {
                     </>
                 )}
                 {auth.auth && (
-                    <Button onClick={logout} color="inherit">Logout</Button>
+                    <>
+                        <Button onClick={logout} color="inherit">Logout</Button>
+                        <Button onClick={() => router.push('/addmovie')} color="inherit">Add movie</Button>
+                    </>
                 )}
-
-                <Button onClick={() => router.push('/addmovie')} color="inherit">Add movie</Button>
             </Toolbar>
         </AppBar>
     )
