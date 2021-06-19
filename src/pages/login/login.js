@@ -1,6 +1,6 @@
 import './style.css'
 import {Button, Card, TextField} from "@material-ui/core";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import API from "../../api/api";
 import Swal from "sweetalert2";
 import {useHistory} from "react-router-dom";
@@ -32,12 +32,6 @@ const Login = () => {
                 Swal.fire('', '', 'error')
             })
     }
-    useEffect(() => {
-        console.log(auth.auth)
-        if (auth.auth) {
-            router.push('/movie')
-        }
-    }, [])
     return (
         <div className={'register-container'}>
             <Card className={'register-card'}>
