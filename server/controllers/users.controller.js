@@ -1,5 +1,10 @@
 const User = require('../shemas/user')
-module.exports.REGISTER = (req, res) => {
+const bcrypt = require('bcrypt')
+const saltRounds = 10;
+
+module.exports.REGISTER = async (req, res) => {
+    const pwdHashed = await bcrypt.hash(req.body.password, saltRounds);
+    req.body.password = pwdHashed;
     const user = new User(req.body)
     user.save()
         .then(ok => {
@@ -19,8 +24,9 @@ module.exports.LOGIN = async (req, res) => {
     }
     const user = await User.findOne({email: req.body.email}).exec()
     if (!user) return res.send({error: true, msg: 'email invalid'})
-    if (user.password !== req.body.password) return res.send({error: true, msg: 'passorwd invalid'})
-    res.send({error: false, msg: 'OK'})
+    const isMatch = bcrypt.compare(req.body.password, user.password, saltRounds)
+    if (!isMatch) return res.send({error: true, msg: 'passorwd invalid'})
+    res.send({error: false, msg: 'OK', data: user})
 }
 module.exports.ALLUSERS = (req, res) => {
     User.find()
