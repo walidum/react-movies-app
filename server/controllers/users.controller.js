@@ -36,5 +36,17 @@ module.exports.ALLUSERS = (req, res) => {
         .catch(err => {
             res.send('ERR')
         })
+}
 
+module.exports.RESET_PWD = async (req, res) => {
+    const id = req.body._id;
+    const password = await bcrypt.hash(req.body.password, saltRounds);
+    User.findByIdAndUpdate(id, {
+        password: password
+    }).then(ok => {
+        res.send('OK')
+    }).catch(err => {
+        console.log(err)
+        res.send('ERROR')
+    })
 }
