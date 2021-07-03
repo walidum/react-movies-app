@@ -24,7 +24,6 @@ const App = () => {
                         </Route>
                         <Route path="/register" component={Register}/>
                         <Route path="/login" component={Login}/>
-                        <Route path="/reset" component={ResetPwd}/>
                         <Route component={Login}/>
                     </Switch>
                 )}
@@ -35,6 +34,7 @@ const App = () => {
                         </Route>
                         <Route path="/movie" component={Movie}/>
                         <Route path="/addmovie" component={AddMovie}/>
+                        <Route path="/reset" component={ResetPwd}/>
                         <Route component={Movie}/>
                     </Switch>
                 )}

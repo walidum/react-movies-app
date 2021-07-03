@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import {useHistory} from 'react-router-dom'
 import AuthContext from "../../context/auth.context";
+import LockIcon from '@material-ui/icons/Lock';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +30,7 @@ const Navbar = () => {
     const logout = () => {
         auth.logout();
         localStorage.setItem('auth', 'false')
+        localStorage.setItem('user', null)
         router.push('/login')
     }
     return (
@@ -49,6 +51,7 @@ const Navbar = () => {
                 )}
                 {auth.auth && (
                     <>
+                        <LockIcon style={{cursor: 'pointer'}} onClick={() => router.push('/reset')}> </LockIcon>
                         <Button onClick={logout} color="inherit">Logout</Button>
                         <Button onClick={() => router.push('/addmovie')} color="inherit">Add movie</Button>
                     </>

@@ -20,6 +20,7 @@ const Login = () => {
                 } else {
                     auth.login();
                     localStorage.setItem('auth', 'true')
+                    localStorage.setItem('user', JSON.stringify(res.data))
                     Swal.fire('', '', 'success')
                         .then(ok => {
                             if (ok.isConfirmed) {

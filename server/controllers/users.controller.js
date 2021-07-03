@@ -24,7 +24,7 @@ module.exports.LOGIN = async (req, res) => {
     }
     const user = await User.findOne({email: req.body.email}).exec()
     if (!user) return res.send({error: true, msg: 'email invalid'})
-    const isMatch = bcrypt.compare(req.body.password, user.password, saltRounds)
+    const isMatch = await bcrypt.compare(req.body.password, user.password)
     if (!isMatch) return res.send({error: true, msg: 'passorwd invalid'})
     res.send({error: false, msg: 'OK', data: user})
 }
